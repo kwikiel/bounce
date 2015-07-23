@@ -4,7 +4,6 @@ from flask.ext.split import split, finished
 app = Flask(__name__)
 app.register_blueprint(split)
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
-app.config['REDIS_URL'] = '172.17.0.5:32768'
 app.config['SPLIT_DB_FAILOVER'] = True
 
 @app.route('/')
