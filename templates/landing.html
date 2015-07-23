@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Getline</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="collapsible.html">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+<div class="container">
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center"> 
+        {{ ab_test('tagline', 'I like trains!', 'I like git!') }}
+      </h1>
+      <div class="row center">
+        <h5 class="header col s12 light">By taking credit line instead of multiple loans</h5>
+      </div>
+      <div class="row center">
+        <a href="/what" id="download-button"
+          class="btn-large waves-effect waves-light orange">
+          {{ ab_test('cta', 'Let me in!', 'Free pizza!') }}</a>
+      </div>
+      <br><br>
+    </div>
+  </div>
+</div>
+{% endblock %}
