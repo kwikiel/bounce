@@ -3,7 +3,9 @@ from flask import render_template, url_for
 from flask.ext.split import split, finished
 app = Flask(__name__)
 app.register_blueprint(split)
-app.config['REDIS_URL'] = 'redis://127.0.0.1:32768'
+app.config['REDIS_URL'] =  'redis://172.17.0.13:6379'
+app.config['REDIS_IP'] = '172.17.0.13'
+app.config['REDIS_PORT'] = '6379'
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 app.config['SPLIT_DB_FAILOVER'] = True
 
