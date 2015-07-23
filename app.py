@@ -16,4 +16,4 @@ def final():
     return "Thank for helping! Go back to work on your startup!"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000)
