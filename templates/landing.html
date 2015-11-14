@@ -19,9 +19,10 @@
         <h5 class="header col s12 light">By taking credit line instead of multiple loans</h5>
       </div>
       <div class="row center">
+        Debug: {{ options }}
         <a href="/what" id="download-button"
           class="btn-large waves-effect waves-light orange">
-          {{ ab_test('cta', 'Let me in!', 'Free pizza!') }}</a>
+          {{ ab_test('cta', *options) }}</a>
       </div>
       <br><br>
     </div>
