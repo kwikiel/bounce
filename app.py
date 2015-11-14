@@ -18,5 +18,10 @@ def final():
     finished('cta')
     return "Thank for helping! Go back to work on your startup!"
 
+@app.route('/nope')
+def final():
+    finished('A')
+    return "Thank for helping! Go back to work on your startup!"
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
