@@ -19,7 +19,7 @@ def final():
     return "Thank for helping! Go back to work on your startup!"
 
 @app.route('/nope')
-def final():
+def final2():
     finished('A')
     return "Thank for helping! Go back to work on your startup!"
 
