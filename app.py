@@ -11,8 +11,7 @@ app.config['SPLIT_DB_FAILOVER'] = True
 
 @app.route('/')
 def landing():
-    options = ["A","B", "C"]
-    return render_template("landing.html", opts=options)
+    return render_template("landing.html")
 
 @app.route('/what')
 def final():
