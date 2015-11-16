@@ -13,13 +13,19 @@
     <div class="container">
       <br><br>
       <h1 class="header center"> 
-      HEHEHEH
+        {{ ab_test('headline', "Papaj", "Popacz") }}
       </h1>
       <div class="row center">
         <h5 class="header col s12 light">By taking credit line instead of multiple loans</h5>
       </div>
       <div class="row center">
         Debug: {{ options }}
+  <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label class="active" for="email">Email for sending newsletter</label>
+        </div>
+      </div>
         <a href="/what" id="download-button"
           class="btn-large waves-effect waves-light orange">
           {{ ab_test('cta', *options) }}</a>
