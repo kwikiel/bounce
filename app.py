@@ -2,7 +2,8 @@ from flask import Flask
 from flask import render_template
 from flask.ext.split import split, finished
 import os
-
+import sys
+import logging
 
 app = Flask(__name__)
 redis_url = os.getenv('REDISTOGO_URL', 'redis://localhost:6379')
@@ -10,6 +11,10 @@ app.config['REDIS_URL'] = redis_url
 app.register_blueprint(split)
 app.secret_key = os.urandom(64)
 app.config['SPLIT_DB_FAILOVER'] = True
+
+# Debug
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 
 @app.route('/')
