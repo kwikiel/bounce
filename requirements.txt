@@ -1,9 +1,10 @@
 Flask==0.10.1
--e git+https://github.com/jpvanhal/flask-split#egg=flask-split
+-e git+https://github.com/jpvanhal/flask-split@39125e3cc27635ff1896e12bebbd1ba82ddeddc8#egg=Flask_Split-master
 Jinja2==2.7.3
 MarkupSafe==0.23
 Werkzeug==0.10.4
 argparse==1.2.1
+gunicorn==19.4.5
 itsdangerous==0.24
 redis==2.10.3
 wsgiref==0.1.2
