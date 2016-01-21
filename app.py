@@ -40,7 +40,7 @@ def landing():
 
 @app.route('/what')
 def final():
-    finished('cta')
+    finished('headline')
     return "Thank for helping! Go back to work on your startup!"
 
 
