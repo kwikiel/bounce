@@ -37,7 +37,7 @@ class Alternative(db.Model):
 @app.route('/')
 def landing():
     options = Alternative.query.all()
-    return render_template("index.html", options=[x.text for x in options])
+    return render_template("index.html")
 
 
 @app.route('/what')
