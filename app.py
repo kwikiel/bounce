@@ -13,7 +13,6 @@ app.config['REDIS_URL'] = redis_url
 app.register_blueprint(split)
 app.config['SPLIT_DB_FAILOVER'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
-print(app.config['SQLALCHEMY_DATABASE_URI'])
 db = SQLAlchemy(app)
 
 # Debug
@@ -36,7 +35,6 @@ class Alternative(db.Model):
 
 @app.route('/')
 def landing():
-    options = Alternative.query.all()
     return render_template("index.html")
 
 
