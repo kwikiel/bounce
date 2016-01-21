@@ -20,9 +20,14 @@ app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
 
 
+# Recursive import? Will it twerk?
+from models import Alternative
+
+
 @app.route('/')
 def landing():
-    return render_template("landing.html", options=["A", "B"])
+    options = Alternative.query.all()
+    return render_template("landing.html", options=[x.text for x in options])
 
 
 @app.route('/what')
