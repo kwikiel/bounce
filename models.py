@@ -5,7 +5,7 @@ class Alternative(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(500), unique=True)
 
-    def __init__(self, id,text):
+    def __init__(self, id, text):
         self.id = id
         self.text = text
 
