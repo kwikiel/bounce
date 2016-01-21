@@ -13,6 +13,7 @@ app.config['REDIS_URL'] = redis_url
 app.register_blueprint(split)
 app.config['SPLIT_DB_FAILOVER'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+print(app.config['SQLALCHEMY_DATABASE_URI'])
 db = SQLAlchemy(app)
 
 # Debug
@@ -21,13 +22,22 @@ app.logger.setLevel(logging.ERROR)
 
 
 # Recursive import? Will it twerk?
-from models import Alternative
+class Alternative(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(500), unique=True)
+
+    def __init__(self, id, text):
+        self.id = id
+        self.text = text
+
+    def __repr__(self):
+        return "<ID: {0} Alternative {1}".format(self.id, self.text)
 
 
 @app.route('/')
 def landing():
     options = Alternative.query.all()
-    return render_template("landing.html", options=[x.text for x in options])
+    return render_template("index.html", options=[x.text for x in options])
 
 
 @app.route('/what')
