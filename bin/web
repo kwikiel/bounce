@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ "$FLASK_ENV" == "development" ]; then
-        python app.py
+        python main.py
 else
-        gunicorn app:app -w 3
+        gunicorn main:app -w 3
 fi
