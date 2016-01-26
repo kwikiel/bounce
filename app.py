@@ -1,10 +1,10 @@
 from flask import Flask
 from flask import render_template
 from flask.ext.split import split, finished
+from flask_sqlalchemy import SQLAlchemy
 import os
 import sys
 import logging
-from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.secret_key = os.urandom(64)
@@ -18,28 +18,3 @@ db = SQLAlchemy(app)
 # Debug
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
-
-
-# Recursive import? Will it twerk?
-from models import Alternative
-
-
-@app.route('/')
-def landing():
-    al = Alternative.query.all()
-    return render_template("index.html", al=al)
-
-
-@app.route('/what')
-def final():
-    finished('headline')
-    return "Thank for helping! Go back to work on your startup!"
-
-
-@app.route('/nope')
-def final2():
-    finished('A')
-    return "Thank for helping! Go back to work on your startup!"
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)

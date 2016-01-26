@@ -1,6 +1,4 @@
 from app import db
-
-
 class Alternative(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     experiment = db.Column(db.String(500), unique=True)
