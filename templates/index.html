@@ -26,7 +26,7 @@
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
-      <h1 class="header center orange-text">   {{ ab_test('headline', 'UBER for X', 'AIRBNB for Y') }} </h1>
+      <h1 class="header center orange-text">   {{ ab_test('headline', 'UBER for X', 'AIRBNB for Y', al[0].copy) }} </h1>
       <div class="row center">
         <h5 class="header col s12 light">Debug {{ al }}</h5>
       </div>

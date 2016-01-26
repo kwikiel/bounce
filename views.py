@@ -1,4 +1,8 @@
 from app import app
+from flask.ext.split import finished
+from model import Alternative
+from flask import render_template
+
 @app.route('/')
 def landing():
     al = Alternative.query.all()
