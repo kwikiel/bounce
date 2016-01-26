@@ -21,21 +21,13 @@ app.logger.setLevel(logging.ERROR)
 
 
 # Recursive import? Will it twerk?
-class Alternative(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.String(500), unique=True)
-
-    def __init__(self, id, text):
-        self.id = id
-        self.text = text
-
-    def __repr__(self):
-        return "<ID: {0} Alternative {1}".format(self.id, self.text)
+from models import Alternative
 
 
 @app.route('/')
 def landing():
-    return render_template("index.html")
+    al = Alternative.query.all()
+    return render_template("index.html", al=al)
 
 
 @app.route('/what')

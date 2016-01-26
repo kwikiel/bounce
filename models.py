@@ -3,11 +3,13 @@ from app import db
 
 class Alternative(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.String(500), unique=True)
+    experiment = db.Column(db.String(500), unique=True)
+    copy = db.Column(db.String(2500))
 
-    def __init__(self, id, text):
+    def __init__(self, id, experiment, copy):
         self.id = id
-        self.text = text
+        self.experiment = experiment
+        self.copy = copy
 
     def __repr__(self):
-        return '<Alternative %r>' % self.text
+        return "<Alt {0} {1} {2}>".format(self.id, self.experiment, self.copy)
